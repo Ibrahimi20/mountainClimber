@@ -33,6 +33,7 @@ const Navbar = () => {
     { label: 'RUN WITH ME', to: '/run_with_me' },
     { label: 'Shop', to: '/shop' },
     { label: 'talks', to: '/talks' },
+    { label: 'Podcast', to: '/Podcast' },
     { label: 'CONTACT ME', to: '/contact' },
   ];
 
