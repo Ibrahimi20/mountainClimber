@@ -14,7 +14,8 @@ import { motion } from 'framer-motion';
 import '../PageStyle/StoryPage.css';
 
 const NAVBAR_HEIGHT = 48;
-const RunWithMe = () => {
+
+const ClimbWithMe = () => {
   const [show, setShow] = useState(false);
   const revealRefs = useRef([]);
 
@@ -103,11 +104,11 @@ const RunWithMe = () => {
         <div className="story-overlay" />
         <Container className="text-center story-hero-content">
           <h1 className="story-quote">
-            Running is not about how fast
+            You don't need experience to start
             <br />
-            it's about how far
+            just the courage to take
             <br />
-            you've willing try ...
+            the first step
           </h1>
         </Container>
       </section>
@@ -441,4 +442,4 @@ const RunWithMe = () => {
   );
 };
 
-export default RunWithMe;
+export default ClimbWithMe;

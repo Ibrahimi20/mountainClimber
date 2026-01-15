@@ -3,12 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MyNavbar from './components/Navbar';
 import Home from './components/Home';
 import Footer from './components/Footer';
-import My_Story from './pages/speach';
 import Store from './pages/Store';
 import ContactUs from './pages/ContactUs';
-import ClimbWithMe from './pages/movewithme';
+import ClimbWithMe from './pages/climbwithme';
 import RunWithMe from './pages/runwithme';
-import MyStory from './pages/speach';
+import StoryPage from './pages/StoryPage';
 const App = () => {
   return (
     <div>
@@ -17,7 +16,7 @@ const App = () => {
         {/* <Hero /> */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/My_Story" element={<MyStory />} />
+          <Route path="/My_Story" element={<StoryPage />} />
           <Route path="/shop" element={<Store />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/climb_with_me" element={<ClimbWithMe />} />

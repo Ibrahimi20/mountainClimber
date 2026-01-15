@@ -1,20 +1,9 @@
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  Button,
-  Badge,
-  Modal,
-} from 'react-bootstrap';
-import { useEffect, useRef } from 'react';
-
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Container, Row, Col, Modal } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import '../PageStyle/StoryPage.css';
 
-const NAVBAR_HEIGHT = 48;
-const RunWithMe = () => {
+export default function StoryPage() {
   const [show, setShow] = useState(false);
   const revealRefs = useRef([]);
 
@@ -70,6 +59,43 @@ const RunWithMe = () => {
     },
   ];
 
+  // personal marathon data example
+  const achievements = [
+    {
+      name: 'Marathon International de Marrakech',
+      type: 'Full Marathon',
+      year: 2026,
+      region: 'Marrakech, Morocco',
+      personalBest: '3h 48m',
+      runs: 2,
+      image: 'https://images.unsplash.com/photo-1562774058-5521eef4b5ac',
+      description:
+        'Prestigious marathon with 42.195 km route through palm-lined streets and historic city walls. Over 9,000 runners attend each year. :contentReference[oaicite:1]{index=1}',
+    },
+    {
+      name: 'Marrakech Half Marathon',
+      type: 'Half Marathon (21.1 km)',
+      year: 2026,
+      region: 'Marrakech, Morocco',
+      personalBest: '1h 55m',
+      runs: 1,
+      image: 'https://images.unsplash.com/photo-1571019613914-85f342c2e71e',
+      description:
+        'Official half marathon run alongside the full marathon, certified flat and fast course. :contentReference[oaicite:2]{index=2}',
+    },
+    {
+      name: 'Rabat International Marathon',
+      type: 'Full Marathon',
+      year: 2025,
+      region: 'Rabat, Morocco',
+      personalBest: '4h 05m',
+      runs: 1,
+      image: 'https://images.unsplash.com/photo-1508606572321-901ea443707f',
+      description:
+        'Annual road marathon and half marathon held in the capital of Morocco since 2015. :contentReference[oaicite:3]{index=3}',
+    },
+  ];
+
   /* ================= Scroll Reveal ================= */
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -96,6 +122,7 @@ const RunWithMe = () => {
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
   return (
     <>
       {/* ================= HERO ================= */}
@@ -103,11 +130,11 @@ const RunWithMe = () => {
         <div className="story-overlay" />
         <Container className="text-center story-hero-content">
           <h1 className="story-quote">
-            Running is not about how fast
+            Mountains don’t test strength
             <br />
-            it's about how far
+            They reveal character
             <br />
-            you've willing try ...
+            Every summit changes you
           </h1>
         </Container>
       </section>
@@ -123,10 +150,10 @@ const RunWithMe = () => {
               <motion.img
                 src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=600&auto=format&fit=crop"
                 srcSet="
-        https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=600&auto=format&fit=crop 600w,
-        https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1000&auto=format&fit=crop 1000w,
-        https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop 1600w
-      "
+      https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=600&auto=format&fit=crop 600w,
+      https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1000&auto=format&fit=crop 1000w,
+      https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop 1600w
+    "
                 sizes="(max-width: 768px) 100vw, 50vw"
                 loading="lazy"
                 alt="Climbing journey"
@@ -203,7 +230,7 @@ const RunWithMe = () => {
         {/* ================= EXPEDITIONS ================= */}
         <section className="expeditions-section">
           <Container>
-            <h2 className="section- text-start">Trekking Regions</h2>
+            <h2 className="section-title text-start">Points Expeditions</h2>
 
             {expeditions.map((exp, index) => (
               <Row key={index} className="expedition-row mb-4">
@@ -247,81 +274,81 @@ const RunWithMe = () => {
 
         {/* ================= STYLES EXPEDITIONS ================= */}
         <style>{`
-          /* MOBILE FIRST */
-          .expeditions-section {
-            background: #0c0c0c;
-            color: #ffffff;
-            padding: 3rem 0;
-          }
-  
+        /* MOBILE FIRST */
+        .expeditions-section {
+          background: #0c0c0c;
+          color: #ffffff;
+          padding: 3rem 0;
+        }
+
+        .section-title {
+          text-align: center;
+          font-size: 1.8rem;
+          font-weight: 600;
+          margin-bottom: 3rem;
+          letter-spacing: 1px;
+        }
+
+        .expedition-row {
+          margin-bottom: 3rem;
+        }
+
+        .expedition-img {
+          width: 100%;
+          height: 220px;
+          object-fit: cover;
+          border-radius: 1rem;
+        }
+
+        .expedition-card {
+          background: #151515;
+          border-radius: 1rem;
+          padding: 1.5rem;
+          height: 100%;
+        }
+
+        .expedition-card h3 {
+          font-size: 1.4rem;
+          margin-bottom: 1rem;
+        }
+
+        .meta {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          font-size: 0.95rem;
+          opacity: 0.9;
+        }
+
+        /* TABLET & DESKTOP */
+        @media (min-width: 768px) {
           .section-title {
-            text-align: center;
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 3rem;
-            letter-spacing: 1px;
+            font-size: 2.4rem;
           }
-  
-          .expedition-row {
-            margin-bottom: 3rem;
-          }
-  
+
           .expedition-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 1rem;
+            height: 320px;
           }
-  
-          .expedition-card {
-            background: #151515;
-            border-radius: 1rem;
-            padding: 1.5rem;
-            height: 100%;
-          }
-  
-          .expedition-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-          }
-  
+
           .meta {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            font-size: 0.95rem;
-            opacity: 0.9;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 1rem;
           }
-  
-          /* TABLET & DESKTOP */
-          @media (min-width: 768px) {
-            .section-title {
-              font-size: 2.4rem;
-            }
-  
-            .expedition-img {
-              height: 320px;
-            }
-  
-            .meta {
-              flex-direction: row;
-              flex-wrap: wrap;
-              gap: 1rem;
-            }
-  
-            .reverse-desktop {
-              flex-direction: row-reverse;
-            }
+
+          .reverse-desktop {
+            flex-direction: row-reverse;
           }
-        `}</style>
+        }
+      `}</style>
       </>
 
       <>
         <section className="athletics-section">
           <Container>
-            <h2 className="section-title text-start">Talk to an Expert</h2>
+            <h2 className="section-title text-start">Atheletic Achievements</h2>
 
-            {/* {achievements.map((run, index) => (
+            {achievements.map((run, index) => (
               <Row
                 key={index}
                 className={`run-row ${
@@ -352,93 +379,91 @@ const RunWithMe = () => {
                   </div>
                 </Col>
               </Row>
-            ))} */}
+            ))}
           </Container>
         </section>
 
         <style>{`
-          /* MOBILE FIRST */
-          .athletics-section {
-            background: #010101;
-            color: #fff;
-            padding: 3rem 0;
-          }
-  
+        /* MOBILE FIRST */
+        .athletics-section {
+          background: #010101;
+          color: #fff;
+          padding: 3rem 0;
+        }
+
+        .section-title {
+          text-align: center;
+          font-size: 1.8rem;
+          font-weight: 700;
+          letter-spacing: 1px;
+          margin-bottom: 2.5rem;
+        }
+
+        .run-row {
+          margin-bottom: 2.5rem;
+        }
+
+        .run-img {
+          width: 100%;
+          height: 220px;
+          object-fit: cover;
+          border-radius: 1rem;
+        }
+
+        .run-card {
+          background: #111;
+          padding: 1.5rem;
+          border-radius: 1rem;
+          height: 100%;
+        }
+
+        .run-card h3 {
+          font-size: 1.4rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .run-type {
+          font-size: 1rem;
+          font-weight: 600;
+          opacity: 0.85;
+        }
+
+        .run-desc {
+          font-size: 0.95rem;
+          margin: 1rem 0;
+          opacity: 0.9;
+          line-height: 1.4;
+        }
+
+        .run-meta {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          font-size: 0.95rem;
+          opacity: 0.9;
+        }
+
+        @media (min-width: 768px) {
           .section-title {
-            text-align: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 2.5rem;
+            font-size: 2.4rem;
           }
-  
-          .run-row {
-            margin-bottom: 2.5rem;
-          }
-  
+
           .run-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 1rem;
+            height: 300px;
           }
-  
-          .run-card {
-            background: #111;
-            padding: 1.5rem;
-            border-radius: 1rem;
-            height: 100%;
-          }
-  
-          .run-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-          }
-  
-          .run-type {
-            font-size: 1rem;
-            font-weight: 600;
-            opacity: 0.85;
-          }
-  
-          .run-desc {
-            font-size: 0.95rem;
-            margin: 1rem 0;
-            opacity: 0.9;
-            line-height: 1.4;
-          }
-  
+
           .run-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            font-size: 0.95rem;
-            opacity: 0.9;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 1rem;
           }
-  
-          @media (min-width: 768px) {
-            .section-title {
-              font-size: 2.4rem;
-            }
-  
-            .run-img {
-              height: 300px;
-            }
-  
-            .run-meta {
-              flex-direction: row;
-              flex-wrap: wrap;
-              gap: 1rem;
-            }
-  
-            .reverse-desktop {
-              flex-direction: row-reverse;
-            }
+
+          .reverse-desktop {
+            flex-direction: row-reverse;
           }
-        `}</style>
+        }
+      `}</style>
       </>
     </>
   );
-};
-
-export default RunWithMe;
+}

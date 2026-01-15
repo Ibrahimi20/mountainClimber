@@ -1,0 +1,306 @@
+/* ================= MOBILE FIRST ================= */
+
+/* HERO */
+.story-hero {
+  min-height: 100vh;
+  background: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop')
+    center / cover no-repeat;
+  position: relative;
+}
+
+.story-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.story-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.story-quote {
+  color: #fff;
+  font-size: 1.7rem;
+  line-height: 1.4;
+}
+
+/* SECTIONS */
+.story-section {
+  padding: 4rem 0;
+}
+
+.story-image {
+  border-radius: 16px;
+}
+
+/* STORY TEXT */
+.story-big-text {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.story-learn-more {
+  background: none;
+  border: none;
+  color: #ff7a00;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+/* MODAL */
+/* ================= VARIABLES ================= */
+:root {
+  --navbar-height: 72px; /* ajuste selon ta navbar */
+}
+
+/* ================= MODAL POSITION ================= */
+.modal {
+  padding-top: var(--navbar-height);
+}
+
+/* ================= MODAL CONTAINER ================= */
+.story-modal {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  max-height: calc(100vh - var(--navbar-height) - 40px);
+}
+
+/* ================= MODAL DIALOG ================= */
+.story-modal-dialog {
+  margin-top: 0;
+}
+
+/* ================= IMAGE (FIXED) ================= */
+.story-image img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+/* ================= SCROLLABLE BODY ================= */
+.story-modal-body {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  padding: 2rem;
+
+  max-height: calc(100vh - var(--navbar-height) - 320px);
+  overflow-y: auto;
+}
+
+/* ================= SCROLLBAR CLEAN ================= */
+.story-modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.story-modal-body::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+/* ================= CONTENT ================= */
+.story-badge {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.story-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.story-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.story-text.muted {
+  color: #666;
+}
+
+/* ================= DARK MODE (OPTIONAL) ================= */
+.story-dark {
+  background: #0e0e0e;
+  color: #fff;
+}
+
+/* ================= TIMELINE ================= */
+.timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #ff7a00;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -1px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  background: #ff7a00;
+  border-radius: 50%;
+}
+
+.timeline-content h5 {
+  margin-bottom: 0.3rem;
+}
+
+/* ================= SCROLL REVEAL ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= DESKTOP ================= */
+@media (min-width: 768px) {
+  .story-quote {
+    font-size: 2.8rem;
+  }
+
+  .story-big-text {
+    font-size: 1.8rem;
+  }
+
+  .story-section-title {
+    font-size: 2.4rem;
+  }
+}
+
+/* motion stye */
+
+.story-image {
+  width: 100%;
+  height: 260px; /* mobile first */
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+  transition: box-shadow 0.3s ease;
+}
+
+.story-image:hover {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+}
+
+@media (min-width: 768px) {
+  .story-image {
+    height: 360px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .story-image {
+    height: 420px;
+  }
+}
+
+/* CARD WRAPPER */
+.expedition-card-image {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  height: 260px;
+  cursor: pointer;
+}
+
+/* IMAGE */
+.expedition-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.expedition-card-image:hover .expedition-img {
+  transform: scale(1.08);
+}
+
+/* OVERLAYS */
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  color: #fff;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.1)
+  );
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* TOP OVERLAY */
+.overlay-top {
+  top: 0;
+}
+
+.overlay-top h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* BOTTOM OVERLAY */
+.overlay-bottom {
+  bottom: -100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+  font-size: 0.95rem;
+}
+
+/* HOVER ANIMATION (DESKTOP) */
+@media (hover: hover) {
+  .expedition-card-image:hover .overlay-bottom {
+    bottom: 0;
+  }
+}
+
+/* MOBILE FIRST — SHOW EVERYTHING */
+@media (max-width: 767px) {
+  .overlay-bottom {
+    bottom: 0;
+    position: relative;
+    background: #111;
+  }
+
+  .overlay {
+    position: relative;
+  }
+
+  .expedition-card-image {
+    height: auto;
+  }
+
+  .expedition-img {
+    height: 220px;
+  }
+}

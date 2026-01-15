@@ -8,10 +8,10 @@ import MyNavbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './components/Home';
 
-import MyStory from './pages/speach';
+import MyStory from './pages/StoryPage';
 import Store from './pages/Store';
 import ContactUs from './pages/ContactUs';
-import ClimbWithMe from './pages/movewithme';
+import ClimbWithMe from './pages/climbwithme';
 import RunWithMe from './pages/runwithme';
 import Checkout from './pages/Checkout';
 import MainLayout from './MainLayout';

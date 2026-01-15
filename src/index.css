@@ -832,3 +832,14 @@ body {
   color: black;
   transform: translateX(6px); /* animation */
 }
+
+.story-quote {
+  color: #fff;
+  font-size: 1.7rem;
+  line-height: 1.4;
+}
+@media (min-width: 768px) {
+  .story-quote {
+    font-size: 2.8rem;
+  }
+}

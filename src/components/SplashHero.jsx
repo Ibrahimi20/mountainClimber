@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Video from '../assets/video/k2-winter-nimsdai-d.mp4';
+import { Container } from 'react-bootstrap';
 
 const SplashHero = () => {
   return (
@@ -43,37 +44,16 @@ const SplashHero = () => {
         style={{ position: 'relative', zIndex: 3 }}
       >
         {/* Title */}
-        <h1
-          className="fw-bold "
-          style={{
-            fontSize: '3rem',
-            color: '#ffffff',
-            textShadow: '0px 4px 10px rgba(0,0,0,0.7)',
-          }}
-        >
-          Climbing high.
-        </h1>
-        <h1
-          className="fw-bold"
-          style={{
-            fontSize: '3rem',
-            color: '#ffffff',
-            textShadow: '0px 4px 10px rgba(0,0,0,0.7)',
-          }}
-        >
-          Running far.
-        </h1>
-        <h1
-          className="fw-bold"
-          style={{
-            fontSize: '3rem',
-            color: '#ffffff',
-            textShadow: '0px 4px 10px rgba(0,0,0,0.7)',
-          }}
-        >
-          Learning always.
-        </h1>
 
+        <Container className="text-center story-hero-content">
+          <h1 className="story-quote">
+            Climbing high.
+            <br />
+            Running far.
+            <br />
+            Learning always.
+          </h1>
+        </Container>
         {/* CTA Button */}
         <a
           href="/My_Story"
