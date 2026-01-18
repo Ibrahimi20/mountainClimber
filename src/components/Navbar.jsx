@@ -6,8 +6,17 @@ import { IoClose, IoMenu } from 'react-icons/io5';
 import { useLocation } from 'react-router-dom';
 import MountainTicker from './ountainTicker';
 
-const Navbar = () => {
+const Navbar = ({ onMenuToggle }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => {
+      const next = !prev;
+      onMenuToggle(next); // 🔥 synchro avec MainLayout
+      return next;
+    });
+  };
+  
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
