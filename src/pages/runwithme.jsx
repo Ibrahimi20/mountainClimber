@@ -12,61 +12,59 @@ import { useEffect, useRef } from 'react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import '../PageStyle/StoryPage.css';
+import trail_amzimiz from '../assets/prodssets/Ultra trail amzimiz.jpeg';
+import casa_marathon from '../assets/prodssets/Run_with_me.jpeg';
+import ContactForm from '../components/ContactForm';
 
 const NAVBAR_HEIGHT = 48;
 const RunWithMe = () => {
   const [show, setShow] = useState(false);
   const revealRefs = useRef([]);
 
-  const expeditions = [
+  const achievements = [
     {
-      name: 'Mount Everest',
-      height: '8,848.86 m',
-      region: 'Asia',
-      year: 2023,
-      climbs: 1,
-      image: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b',
+      name: 'Marathon International de Marrakech',
+      type: 'Full Marathon',
+      year: 2026,
+      region: 'Marrakech, Morocco',
+      personalBest: '3h 48m',
+      runs: 2,
+      image: 'https://images.unsplash.com/photo-1508606572321-901ea443707f',
+      description:
+        'Prestigious marathon with 42.195 km route through palm-lined streets and historic city walls. Over 9,000 runners attend each year.',
     },
     {
-      name: 'Kilimanjaro',
-      height: '5,895 m',
-      region: 'Africa',
-      year: 2017,
-      climbs: 2,
-      image: 'https://images.unsplash.com/photo-1548013146-72479768bada',
+      name: 'Marathon International de Casablanca',
+      type: 'Full Marathon',
+      year: 2026,
+      region: 'Casablanca, Morocco',
+      personalBest: '3h 55m',
+      runs: 1,
+      image: casa_marathon,
+      description:
+        'Major road race held in Casablanca, featuring a 42.195 km course through the city’s main avenues and coastal areas. The event attracts professional and amateur runners from Morocco and abroad.',
     },
     {
-      name: 'Aconcagua',
-      height: '6,961 m',
-      region: 'South America',
-      year: 2019,
-      climbs: 2,
-      image: 'https://images.unsplash.com/photo-1521295121783-8a321d551ad2',
+      name: 'Marrakech Half Marathon',
+      type: 'Half Marathon (21.1 km)',
+      year: 2026,
+      region: 'Marrakech, Morocco',
+      personalBest: '1h 55m',
+      runs: 1,
+      image: 'https://images.unsplash.com/photo-1571019613914-85f342c2e71e',
+      description:
+        'Official half marathon run alongside the full marathon, certified flat and fast course. :contentReference[oaicite:2]{index=2}',
     },
     {
-      name: 'K2',
-      height: '8,611 m',
-      region: 'Asia',
-      year: 2024,
-      climbs: 1,
-      image: 'https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8',
-    },
-
-    {
-      name: 'Mount Vinson',
-      height: '4,892 m',
-      region: 'Antarctica',
-      year: 2024,
-      climbs: 1,
-      image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba',
-    },
-    {
-      name: 'Mount Toubkal',
-      height: '4,167 m',
-      region: 'Africa (Morocco)',
-      year: 2015,
-      climbs: 21,
-      image: 'https://images.unsplash.com/photo-1604079628040-94301bb21b91',
+      name: 'Ultra Trail Amizmiz',
+      type: 'Full course',
+      year: 2025,
+      region: 'Marrakech, Morocco',
+      personalBest: '6h 05m',
+      runs: 1,
+      image: trail_amzimiz,
+      description:
+        'Annual road marathon and half marathon held in the capital of Morocco since 2015. :contentReference[oaicite:3]{index=3}',
     },
   ];
 
@@ -80,7 +78,7 @@ const RunWithMe = () => {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
 
     revealRefs.current.forEach((el) => el && observer.observe(el));
@@ -200,19 +198,19 @@ const RunWithMe = () => {
       </Modal>
 
       <>
-        {/* ================= EXPEDITIONS ================= */}
-        <section className="expeditions-section">
+        {/* ================= achievements ================= */}
+        <section className="achievements-section">
           <Container>
             <h2 className="section- text-start">Trekking Regions</h2>
 
-            {expeditions.map((exp, index) => (
+            {achievements.map((exp, index) => (
               <Row key={index} className="expedition-row mb-4">
                 {[0, 1].map((colIndex) => {
-                  const item = expeditions[index * 2 + colIndex];
+                  const item = achievements[index * 2 + colIndex];
                   if (!item) return null;
 
                   return (
-                    <Col key={colIndex} xs={12} md={6} className="mb-3">
+                    <Col key={colIndex} xs={12} md={6} className="">
                       <div className="expedition-card-image">
                         <img
                           src={item.image}
@@ -224,7 +222,7 @@ const RunWithMe = () => {
                         {/* TOP INFO */}
                         <div className="overlay overlay-top">
                           <h3>{item.name}</h3>
-                          <span>📏 {item.height}</span>
+                          <span>🏁 {item.type}</span>
                           <span>🌍 {item.region}</span>
                         </div>
 
@@ -232,9 +230,11 @@ const RunWithMe = () => {
                         <div className="overlay overlay-bottom">
                           <span>📅 Year: {item.year}</span>
                           <span>
-                            🧗 Climbs: {item.climbs} ascent
-                            {item.climbs > 1 ? 's' : ''}
+                            🏃 Runs: {item.runs} time{item.runs > 1 ? 's' : ''}
                           </span>
+                          {item.personalBest && (
+                            <span>⏱ PB: {item.personalBest}</span>
+                          )}
                         </div>
                       </div>
                     </Col>
@@ -245,10 +245,10 @@ const RunWithMe = () => {
           </Container>
         </section>
 
-        {/* ================= STYLES EXPEDITIONS ================= */}
+        {/* ================= STYLES achievements ================= */}
         <style>{`
           /* MOBILE FIRST */
-          .expeditions-section {
+          .achievements-section {
             background: #0c0c0c;
             color: #ffffff;
             padding: 3rem 0;
@@ -320,39 +320,7 @@ const RunWithMe = () => {
         <section className="athletics-section">
           <Container>
             <h2 className="section-title text-start">Talk to an Expert</h2>
-
-            {/* {achievements.map((run, index) => (
-              <Row
-                key={index}
-                className={`run-row ${
-                  index % 2 !== 0 ? 'reverse-desktop' : ''
-                }`}
-              >
-                <Col xs={12} md={6} className="mb-3 mb-md-0">
-                  <img
-                    src={run.image}
-                    alt={run.name}
-                    className="run-img"
-                    loading="lazy"
-                  />
-                </Col>
-
-                <Col xs={12} md={6}>
-                  <div className="run-card">
-                    <h3>{run.name}</h3>
-                    <p className="run-type">{run.type}</p>
-                    <p className="run-desc">{run.description}</p>
-
-                    <div className="run-meta">
-                      <span>📍 {run.region}</span>
-                      <span>📅 {run.year}</span>
-                      <span>⏱️ PB: {run.personalBest}</span>
-                      <span>🏃 Runs: {run.runs}</span>
-                    </div>
-                  </div>
-                </Col>
-              </Row>
-            ))} */}
+            <ContactForm />
           </Container>
         </section>
 

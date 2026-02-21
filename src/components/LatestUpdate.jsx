@@ -1,6 +1,6 @@
 import { Container, Row, Col, Card } from 'react-bootstrap';
 // import './LatestUpdate.css';
-import MT_manaslu from '../assets/prodssets/Mt Manaslu.jpeg';
+import MT_manaslu from '../assets/prodssets/Mt_Manaslu.jpeg';
 import km90 from '../assets/prodssets/Ultra trail amzimiz.jpeg';
 import Everest from '../assets/prodssets/Everest.jpeg';
 

@@ -12,6 +12,10 @@ import { useEffect, useRef } from 'react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import '../PageStyle/StoryPage.css';
+import toubkal_img from '../assets/prodssets/images/toubkal_group.png';
+
+import MT_manaslu from '../assets/prodssets/Mt_Manaslu.jpeg';
+import ContactForm from '../components/ContactForm';
 
 const NAVBAR_HEIGHT = 48;
 
@@ -21,53 +25,56 @@ const ClimbWithMe = () => {
 
   const expeditions = [
     {
-      name: 'Mount Everest',
-      height: '8,848.86 m',
-      region: 'Asia',
-      year: 2023,
-      climbs: 1,
-      image: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b',
-    },
-    {
-      name: 'Kilimanjaro',
-      height: '5,895 m',
-      region: 'Africa',
-      year: 2017,
-      climbs: 2,
-      image: 'https://images.unsplash.com/photo-1548013146-72479768bada',
-    },
-    {
-      name: 'Aconcagua',
-      height: '6,961 m',
-      region: 'South America',
-      year: 2019,
-      climbs: 2,
-      image: 'https://images.unsplash.com/photo-1521295121783-8a321d551ad2',
-    },
-    {
-      name: 'K2',
-      height: '8,611 m',
-      region: 'Asia',
-      year: 2024,
-      climbs: 1,
-      image: 'https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8',
-    },
-
-    {
-      name: 'Mount Vinson',
-      height: '4,892 m',
-      region: 'Antarctica',
-      year: 2024,
-      climbs: 1,
-      image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba',
-    },
-    {
       name: 'Mount Toubkal',
       height: '4,167 m',
       region: 'Africa (Morocco)',
       year: 2015,
       climbs: 21,
-      image: 'https://images.unsplash.com/photo-1604079628040-94301bb21b91',
+      image: toubkal_img,
+    },
+    {
+      name: 'Mount Kilimanjaro',
+      height: '5695 m',
+      region: 'Africa (Kenya/Tanzanie)',
+      year: 2022,
+      climbs: 1,
+      image: toubkal_img,
+    },
+    // { name: '', altitude: ' m' }
+
+    {
+      name: 'Mount Aconcagua',
+      height: '6962 m',
+      region: 'Amérique du Sud (Argentine)',
+      year: 2022,
+      climbs: 1,
+      image: toubkal_img,
+    },
+
+    {
+      name: 'Mount Elbrus',
+      height: '5645 m',
+      region: 'Europe (Russie)',
+      year: 2022,
+      climbs: 21,
+      image: toubkal_img,
+    },
+
+    {
+      name: 'Mount Lobuche',
+      height: '6119 m',
+      region: 'Asie (Népal)',
+      year: 2022,
+      climbs: 1,
+      image: toubkal_img,
+    },
+    {
+      name: 'MANASLU',
+      height: '8163 m',
+      region: ' Asie | 🇳🇵 Népal',
+      year: 2024,
+      climbs: 1,
+      image: MT_manaslu,
     },
   ];
 
@@ -81,7 +88,7 @@ const ClimbWithMe = () => {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
 
     revealRefs.current.forEach((el) => el && observer.observe(el));
@@ -213,7 +220,7 @@ const ClimbWithMe = () => {
                   if (!item) return null;
 
                   return (
-                    <Col key={colIndex} xs={12} md={6} className="mb-3">
+                    <Col key={colIndex} xs={12} md={6} className="">
                       <div className="expedition-card-image">
                         <img
                           src={item.image}
@@ -321,39 +328,7 @@ const ClimbWithMe = () => {
         <section className="athletics-section">
           <Container>
             <h2 className="section-title text-start">Talk to an Expert</h2>
-
-            {/* {achievements.map((run, index) => (
-              <Row
-                key={index}
-                className={`run-row ${
-                  index % 2 !== 0 ? 'reverse-desktop' : ''
-                }`}
-              >
-                <Col xs={12} md={6} className="mb-3 mb-md-0">
-                  <img
-                    src={run.image}
-                    alt={run.name}
-                    className="run-img"
-                    loading="lazy"
-                  />
-                </Col>
-
-                <Col xs={12} md={6}>
-                  <div className="run-card">
-                    <h3>{run.name}</h3>
-                    <p className="run-type">{run.type}</p>
-                    <p className="run-desc">{run.description}</p>
-
-                    <div className="run-meta">
-                      <span>📍 {run.region}</span>
-                      <span>📅 {run.year}</span>
-                      <span>⏱️ PB: {run.personalBest}</span>
-                      <span>🏃 Runs: {run.runs}</span>
-                    </div>
-                  </div>
-                </Col>
-              </Row>
-            ))} */}
+            <ContactForm />
           </Container>
         </section>
 

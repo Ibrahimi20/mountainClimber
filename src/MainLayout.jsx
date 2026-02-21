@@ -25,7 +25,7 @@ const MainLayout = () => {
       {
         threshold: 0,
         rootMargin: '-120px 0px 0px 0px', // ajuste selon la hauteur voulue
-      }
+      },
     );
 
     observer.observe(section1);
@@ -35,10 +35,10 @@ const MainLayout = () => {
 
   return (
     <>
-      <MyNavbar  onMenuToggle={setMenuOpen}  />
+      <MyNavbar onMenuToggle={setMenuOpen} />
 
       {/* 🎯 MountainTicker lié à la visibilité de la section 1 */}
-      {isHome && !menuOpen &&  (
+      {isHome && !menuOpen && (
         <div
           style={{
             position: 'fixed',

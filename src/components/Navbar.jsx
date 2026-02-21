@@ -16,8 +16,6 @@ const Navbar = ({ onMenuToggle }) => {
       return next;
     });
   };
-  
-  const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
   const [navbarColor, setNavbarColor] = useState('transparent');
@@ -104,7 +102,7 @@ const Navbar = ({ onMenuToggle }) => {
               {menuOpen ? (
                 <IoClose size={32} color="white" />
               ) : (
-                <IoMenu size={32} color="white" />
+                <IoMenu size={32} color="white" name="test" />
               )}
             </button>
           </div>

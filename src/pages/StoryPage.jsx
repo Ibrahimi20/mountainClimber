@@ -2,6 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import { Container, Row, Col, Modal } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import '../PageStyle/StoryPage.css';
+import toubkal_img from '../assets/prodssets/images/toubkal.png';
+// import manaslu_img from '../assets/prodssets/Mt_Manaslu.jpeg';
+import MT_manaslu from '../assets/prodssets/Mt_Manaslu.jpeg';
+
+import trail_amzimiz from '../assets/prodssets/Ultra trail amzimiz.jpeg';
 
 export default function StoryPage() {
   const [show, setShow] = useState(false);
@@ -9,53 +14,56 @@ export default function StoryPage() {
 
   const expeditions = [
     {
-      name: 'Mount Everest',
-      height: '8,848.86 m',
-      region: 'Asia',
-      year: 2023,
-      climbs: 1,
-      image: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b',
-    },
-    {
-      name: 'Kilimanjaro',
-      height: '5,895 m',
-      region: 'Africa',
-      year: 2017,
-      climbs: 2,
-      image: 'https://images.unsplash.com/photo-1548013146-72479768bada',
-    },
-    {
-      name: 'Aconcagua',
-      height: '6,961 m',
-      region: 'South America',
-      year: 2019,
-      climbs: 2,
-      image: 'https://images.unsplash.com/photo-1521295121783-8a321d551ad2',
-    },
-    {
-      name: 'K2',
-      height: '8,611 m',
-      region: 'Asia',
-      year: 2024,
-      climbs: 1,
-      image: 'https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8',
-    },
-
-    {
-      name: 'Mount Vinson',
-      height: '4,892 m',
-      region: 'Antarctica',
-      year: 2024,
-      climbs: 1,
-      image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba',
-    },
-    {
       name: 'Mount Toubkal',
       height: '4,167 m',
       region: 'Africa (Morocco)',
       year: 2015,
       climbs: 21,
-      image: 'https://images.unsplash.com/photo-1604079628040-94301bb21b91',
+      image: toubkal_img,
+    },
+    {
+      name: 'Mount Kilimanjaro',
+      height: '5695 m',
+      region: 'Africa (Kenya/Tanzanie)',
+      year: 2022,
+      climbs: 1,
+      image: toubkal_img,
+    },
+    // { name: '', altitude: ' m' }
+
+    {
+      name: 'Mount Aconcagua',
+      height: '6962 m',
+      region: 'Amérique du Sud (Argentine)',
+      year: 2022,
+      climbs: 1,
+      image: toubkal_img,
+    },
+
+    {
+      name: 'Mount Elbrus',
+      height: '5645 m',
+      region: 'Europe (Russie)',
+      year: 2022,
+      climbs: 21,
+      image: toubkal_img,
+    },
+
+    {
+      name: 'Mount Lobuche',
+      height: '6119 m',
+      region: 'Asie (Népal)',
+      year: 2022,
+      climbs: 1,
+      image: toubkal_img,
+    },
+    {
+      name: 'MANASLU',
+      height: '8163 m',
+      region: ' Asie | 🇳🇵 Népal',
+      year: 2024,
+      climbs: 1,
+      image: MT_manaslu,
     },
   ];
 
@@ -68,9 +76,9 @@ export default function StoryPage() {
       region: 'Marrakech, Morocco',
       personalBest: '3h 48m',
       runs: 2,
-      image: 'https://images.unsplash.com/photo-1562774058-5521eef4b5ac',
+      image: 'https://images.unsplash.com/photo-1508606572321-901ea443707f',
       description:
-        'Prestigious marathon with 42.195 km route through palm-lined streets and historic city walls. Over 9,000 runners attend each year. :contentReference[oaicite:1]{index=1}',
+        'Prestigious marathon with 42.195 km route through palm-lined streets and historic city walls. Over 9,000 runners attend each year.',
     },
     {
       name: 'Marrakech Half Marathon',
@@ -84,13 +92,13 @@ export default function StoryPage() {
         'Official half marathon run alongside the full marathon, certified flat and fast course. :contentReference[oaicite:2]{index=2}',
     },
     {
-      name: 'Rabat International Marathon',
-      type: 'Full Marathon',
+      name: 'Ultra Trail Amizmiz',
+      type: 'Full course',
       year: 2025,
-      region: 'Rabat, Morocco',
-      personalBest: '4h 05m',
+      region: 'Marrakech, Morocco',
+      personalBest: '6h 05m',
       runs: 1,
-      image: 'https://images.unsplash.com/photo-1508606572321-901ea443707f',
+      image: trail_amzimiz,
       description:
         'Annual road marathon and half marathon held in the capital of Morocco since 2015. :contentReference[oaicite:3]{index=3}',
     },
@@ -106,7 +114,7 @@ export default function StoryPage() {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
 
     revealRefs.current.forEach((el) => el && observer.observe(el));
